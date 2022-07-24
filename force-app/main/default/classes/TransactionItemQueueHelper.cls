@@ -1,12 +1,18 @@
 /**
- * @description       : 
+ * @description       : This is helper class for TransactionItemQueue
  * @author            : Prathamesh Lad
  * @group             : 
- * @last modified on  : 07-21-2022
+ * @last modified on  : 07-24-2022
  * @last modified by  : Prathamesh Lad
 **/
 public with sharing class TransactionItemQueueHelper {
 
+    /**
+    * @description This method is used to create API request using Transaction Items
+    * @author Prathamesh Lad | 07-24-2022 
+    * @param listWrapperObj 
+    * @return String 
+    **/
     public Static String createTransactionItemRequest(List<PayloadWrapper> listWrapperObj){
         
         List<TransactionItemRequest> listRequestObj=new List<TransactionItemRequest>();
@@ -31,6 +37,12 @@ public with sharing class TransactionItemQueueHelper {
         return JSON.serialize(listRequestObj);
     } 
     
+    /**
+    * @description This method is used to call First API
+    * @author Prathamesh Lad | 07-24-2022 
+    * @param requestBody 
+    * @return Boolean 
+    **/
     public Static Boolean callTransactionItemAPI(String requestBody){
         Http http = new Http();
         HttpRequest request = new HttpRequest();
@@ -41,7 +53,7 @@ public with sharing class TransactionItemQueueHelper {
         //request.setBody(requestBody);
         
         HttpResponse response = http.send(request);
-        if(response.getStatusCode() != 201) {
+        if(response.getStatusCode() != 200) {
             System.debug('The status code returned was not expected: ' 
                 + response.getStatusCode() + ' ' + response.getStatus());
             return false;    

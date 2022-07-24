@@ -1,8 +1,8 @@
 /**
- * @description       : 
+ * @description       : This is Request class for Transaction Item
  * @author            : Prathamesh Lad
  * @group             : 
- * @last modified on  : 07-21-2022
+ * @last modified on  : 07-24-2022
  * @last modified by  : Prathamesh Lad
 **/
 public with sharing class TransactionItemRequest {
